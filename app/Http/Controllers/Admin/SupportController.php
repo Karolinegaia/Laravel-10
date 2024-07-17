@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSupportRequest;
 use App\Models\Support;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class SupportController extends Controller
         return view('admin/supports/create');
     }
     
-    public function store(Request $request, Support $support)
+    public function store(StoreSupportRequest $request, Support $support)
     {
         $data = $request->all();
         $data['status'] = 'a';
@@ -61,6 +62,6 @@ class SupportController extends Controller
             return back();
         }
         $support->delete();
-        return redirect()->route('supports.index')
+        return redirect()->route('supports.index');
     }
 }

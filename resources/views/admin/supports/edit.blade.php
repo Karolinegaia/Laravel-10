@@ -1,7 +1,7 @@
 <h1>Dúvida {{$support->id}}</h1>
 
 <form action="{{ route('supports.update', $support->id) }}" method="POST">
-    @method('put')
+    @method('PUT')
     <!-- <input type="hidden" value="{{ csrf_token() }}" name="_token"> -->
     @csrf()
     <input type="text" placeholder="Assunto" name="subject" value="{{$support->subject}}">
